@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:com:appian:types:T2"
+  xmlns:tns="urn:com:appian:types:T2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:include schemaLocation="%7Burn%3Acom%3Aappian%3Atypes%3AT2%7DT2_Paragraph.xsd"/>
+  <xsd:include schemaLocation="%7Burn%3Acom%3Aappian%3Atypes%3AT2%7DT2_Priority.xsd"/>
+  <xsd:include schemaLocation="%7Burn%3Acom%3Aappian%3Atypes%3AT2%7DT2_Process.xsd"/>
+  <xsd:include schemaLocation="%7Burn%3Acom%3Aappian%3Atypes%3AT2%7DT2_Status.xsd"/>
+  <xsd:include schemaLocation="%7Burn%3Acom%3Aappian%3Atypes%3AT2%7DT2_TypeOfASingular.xsd"/>
+  <xsd:complexType name="T2_Singular">
+    <xsd:annotation>
+      <xsd:appinfo source="appian.jpa">@Table(name="qckapp_t2_main")</xsd:appinfo>
+      <xsd:appinfo source="http://www.appian.com/ae/types/2009">
+        <ns2:Metadata xmlns:ns2="http://www.appian.com/ae/types/2009">
+          <ns2:versionUuid>0000e443-e59f-8000-fa27-7f0000014e7a</ns2:versionUuid>
+          <ns2:history>
+            <ns2:historyInfo versionUuid="0003e443-dc33-8000-fa07-7f0000014e7a"/>
+            <ns2:historyInfo versionUuid="0000e443-e59f-8000-fa27-7f0000014e7a"/>
+          </ns2:history>
+        </ns2:Metadata>
+      </xsd:appinfo>
+      <xsd:documentation><![CDATA[Base data structure for a single Singularrecord]]></xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="id" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Id @GeneratedValue</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="singularName" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="singularname")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="priority" nillable="true" type="tns:T2_Priority">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@JoinColumn(name="priority") @ManyToOne(cascade=REFRESH)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="status" nillable="true" type="tns:T2_Status">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@JoinColumn(name="status") @ManyToOne(cascade=REFRESH)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="user" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="user")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="description" nillable="true" type="tns:T2_Paragraph">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@JoinColumn(name="description") @OneToOne(cascade=ALL)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="dateAdded" nillable="true" type="xsd:date">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="dateadded")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="dateSingulared" nillable="true" type="xsd:date">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="datesingulared")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="process" nillable="true" type="tns:T2_Process">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@JoinColumn(name="process") @ManyToOne(cascade=REFRESH)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="unbounded" minOccurs="0"
+        name="typeOfASingular" type="tns:T2_TypeOfASingular">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@ManyToMany(cascade=CascadeType.REFRESH, indexed=false) @JoinTable(name="qckapp_t2_join_typeofasitgj", joinColumns=@JoinColumn(name="typeofasingular"), inverseJoinColumns=@JoinColumn(name="inv_typeofasingular"))</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="reviewer" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="reviewer")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="folderId" nillable="true" type="xsd:int"/>
+      <xsd:element name="createdBy" nillable="true" type="xsd:string"/>
+      <xsd:element name="createdOn" nillable="true" type="xsd:dateTime"/>
+      <xsd:element name="updatedBy" nillable="true" type="xsd:string"/>
+      <xsd:element name="updatedOn" nillable="true" type="xsd:dateTime"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

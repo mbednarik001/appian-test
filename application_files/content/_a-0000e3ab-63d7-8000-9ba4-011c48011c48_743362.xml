@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e3ab-63d7-8000-9ba4-011c48011c48_743374</versionUuid>
+    <rule>
+        <name>inft_CDT</name>
+        <uuid>_a-0000e3ab-63d7-8000-9ba4-011c48011c48_743362</uuid>
+        <description></description>
+        <parentUuid>_a-0000e3ab-63d7-8000-9ba4-011c48011c48_743259</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#"SYSTEM_SYSRULES_formLayout_v1"(
+  label: "Vehicle",
+  contents: {
+    #"SYSTEM_SYSRULES_sectionLayout_v1"(
+      contents: {
+        #"SYSTEM_SYSRULES_gridLayout"(
+          label: "Model",
+          labelPosition: "ABOVE",
+          headerCells: {
+            #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(label: "Header Cell")
+          },
+          columnConfigs: {},
+          rows: {},
+          selectionSaveInto: {},
+          selectable: true,
+          selectionstyle: "ROW_HIGHLIGHT",
+          selectionrequired: true,
+          validations: {},
+          shadeAlternateRows: true,
+          spacing: "STANDARD"
+        )
+      }
+    ),
+    #"SYSTEM_SYSRULES_sectionLayout_v1"(
+      label: "Section",
+      contents: {}
+    )
+  },
+  buttons: #"SYSTEM_SYSRULES_ButtonLayout"(
+    primaryButtons: {
+      #"SYSTEM_SYSRULES_ButtonWidget"(
+        label: "Submit",
+        submit: true,
+        style: "PRIMARY"
+      )
+    },
+    secondaryButtons: {
+      #"SYSTEM_SYSRULES_ButtonWidget"(
+        label: "Cancel",
+        value: true,
+        saveInto: ri!cancel,
+        submit: true,
+        style: "NORMAL",
+        validate: false
+      )
+    }
+  )
+)</definition>
+        <namedTypedValue>
+            <name>cancel</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>vehicleCDT</name>
+            <type>
+                <name>SIMA_Vehicle</name>
+                <namespace>urn:com:appian:types:SIMA</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e3ab-63d7-8000-9ba4-011c48011c48_743374"/>
+    </history>
+</contentHaul>

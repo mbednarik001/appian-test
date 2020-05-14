@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<groupHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_e-0000e3ab-63d7-8000-9af0-01075c01075c_1095</versionUuid>
+    <group>
+        <name>Singular admins</name>
+        <securityMap>SECURITYMAP_PERSONAL</securityMap>
+        <uuid>_e-0000e3ab-63d7-8000-9af0-01075c01075c_1094</uuid>
+        <groupTypeUuid>SYSTEM_GROUP_TYPE_CUSTOM</groupTypeUuid>
+        <parentUuid>_e-0000e3ab-63d7-8000-9af0-01075c01075c_1092</parentUuid>
+        <description></description>
+        <delegatedCreation>false</delegatedCreation>
+        <memberPolicy>MEMBERPOLICY_CLOSED</memberPolicy>
+        <viewingPolicy>VIEWINGPOLICY_HIGH</viewingPolicy>
+        <attributes/>
+    </group>
+    <members>
+        <users/>
+        <groups/>
+    </members>
+    <admins>
+        <users/>
+        <groups/>
+    </admins>
+    <ruleSet/>
+    <history>
+        <historyInfo versionUuid="_e-0000e3ab-63d7-8000-9af0-01075c01075c_1095"/>
+    </history>
+</groupHaul>

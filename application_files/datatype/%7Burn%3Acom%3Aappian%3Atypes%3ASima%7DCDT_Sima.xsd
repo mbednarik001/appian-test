@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:com:appian:types:Sima"
+  xmlns:tns="urn:com:appian:types:Sima"
+  xmlns:vm2="urn:com:appian:types:VM" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="urn:com:appian:types:VM" schemaLocation="%7Burn%3Acom%3Aappian%3Atypes%3AVM%7DVM_Maintenance.xsd"/>
+  <xsd:complexType name="CDT_Sima">
+    <xsd:annotation>
+      <xsd:appinfo source="http://www.appian.com/ae/types/2009">
+        <ns2:Metadata xmlns:ns2="http://www.appian.com/ae/types/2009">
+          <ns2:versionUuid>0000e447-dfd0-8000-fa9c-7f0000014e7a</ns2:versionUuid>
+          <ns2:history>
+            <ns2:historyInfo versionUuid="0000e447-dfd0-8000-fa9c-7f0000014e7a"/>
+          </ns2:history>
+        </ns2:Metadata>
+      </xsd:appinfo>
+      <xsd:documentation><![CDATA[CustomDataTypes learning]]></xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="simaID" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Id @GeneratedValue</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="simaField" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(length=255)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="model" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(length=255)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="vin" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(length=17)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="isAvalable" nillable="true" type="xsd:boolean"/>
+      <xsd:element name="dateAcquired" nillable="true" type="xsd:date"/>
+      <xsd:element name="year" nillable="true" type="xsd:int"/>
+      <xsd:element name="value" nillable="true" type="xsd:double"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0"
+        name="maintenance" type="vm2:VM_Maintenance">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@OneToMany(cascade=CascadeType.ALL, indexed=false) @JoinColumn(name="id")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

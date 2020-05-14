@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e3ab-63d7-8000-9ba4-011c48011c48_743382</versionUuid>
+    <rule>
+        <name>intf_GroupBrowser</name>
+        <uuid>_a-0000e3ab-63d7-8000-9ba4-011c48011c48_743265</uuid>
+        <description>training purposes</description>
+        <parentUuid>_a-0000e3ab-63d7-8000-9ba4-011c48011c48_743259</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!navigation,
+  #"SYSTEM_SYSRULES_formLayout_v1"(
+  label: "Form",
+  contents: {
+    #"SYSTEM_SYSRULES_sectionLayout_v1"(
+      contents: {
+        #"SYSTEM_SYSRULES_pickerFieldGroups"(
+          label: "Group Picker: Select a Group",
+          labelPosition: "ABOVE",
+          value: ri!selectedGroup,
+          saveInto: ri!selectedGroup,
+          validations: {}
+        )
+      }
+    ),
+    #"SYSTEM_SYSRULES_sectionLayout_v1"(
+      label: "Section",
+      contents: {
+        #"SYSTEM_SYSRULES_ButtonArrayLayout"(
+          buttons: {
+            #"SYSTEM_SYSRULES_ButtonWidget"(
+              label: "Grr",
+              style: "NORMAL"
+            )
+          },
+          align: "CENTER"
+        )
+      }
+    ),
+    #"SYSTEM_SYSRULES_userBrowserFieldColumns"(
+      label: "User Browser",
+      labelPosition: "ABOVE",
+      height: "MEDIUM"
+    ),
+    #"SYSTEM_SYSRULES_groupBrowserFieldColumns"(
+      label: "Group Browser",
+      labelPosition: "ABOVE",
+      height: "MEDIUM"
+    ),
+    #"SYSTEM_SYSRULES_userAndGroupBrowserFieldColumns"(
+      label: "Browse through Users &amp; Groups",
+      labelPosition: "ABOVE",
+      rootgroup: ri!selectedGroup,
+      pathvalue: local!navigation,
+      selectionvalue: ri!selectedUserORGroup,
+      height: "MEDIUM"
+    )
+  },
+  buttons: #"SYSTEM_SYSRULES_ButtonLayout"(
+    primaryButtons: {
+      #"SYSTEM_SYSRULES_ButtonWidget"(
+        label: "Submit",
+        submit: true,
+        style: "PRIMARY"
+      )
+    },
+    secondaryButtons: {
+      #"SYSTEM_SYSRULES_ButtonWidget"(
+        label: "Cancel",
+        value: true,
+        saveInto: ri!cancel,
+        submit: true,
+        style: "NORMAL",
+        validate: false
+      )
+    }
+  )
+)
+)</definition>
+        <namedTypedValue>
+            <name>cancel</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>selectedGroup</name>
+            <type>
+                <name>Group</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>selectedUserORGroup</name>
+            <type>
+                <name>UserOrGroup</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e3ab-63d7-8000-9ba4-011c48011c48_743382"/>
+    </history>
+</contentHaul>

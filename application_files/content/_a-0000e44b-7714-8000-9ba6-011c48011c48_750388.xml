@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e44b-7714-8000-9ba6-011c48011c48_751024</versionUuid>
+    <rule>
+        <name>TA_MockUp</name>
+        <uuid>_a-0000e44b-7714-8000-9ba6-011c48011c48_750388</uuid>
+        <description>Add basic info about Maintenance request</description>
+        <parentUuid>_a-0000e3ab-63d7-8000-9ba4-011c48011c48_743317</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#"SYSTEM_SYSRULES_formLayout_v1"(
+  label: "Create Maintenance Reaquest",
+  contents: {
+    #"SYSTEM_SYSRULES_columnsLayout"(
+      columns: {
+        #"SYSTEM_SYSRULES_columnLayout"(
+          contents: {
+            #"SYSTEM_SYSRULES_sectionLayout_v1"(
+              label: "Customer information",
+              contents: {
+                #"SYSTEM_SYSRULES_sideBySideLayout"(
+                  items: {
+                    #"SYSTEM_SYSRULES_sideBySideItem"(
+                      item: #"SYSTEM_SYSRULES_textField"(
+                        label: "First Name",
+                        labelPosition: "ABOVE",
+                        instructions: "Instrctions",
+                        helptooltip: "Help Tooltip",
+                        placeholder: "Placeholder",
+                        value: ri!firstName,
+                        saveInto: ri!firstName,
+                        refreshAfter: "UNFOCUS",
+                        required: true,
+                        validations: {}
+                      )
+                    ),
+                    #"SYSTEM_SYSRULES_sideBySideItem"(
+                      item: #"SYSTEM_SYSRULES_textField"(
+                        label: "Middle Initial",
+                        labelPosition: "ABOVE",
+                        saveInto: {},
+                        refreshAfter: "UNFOCUS",
+                        validations: {}
+                      )
+                    ),
+                    #"SYSTEM_SYSRULES_sideBySideItem"(
+                      item: #"SYSTEM_SYSRULES_textField"(
+                        label: "Last Name",
+                        labelPosition: "ABOVE",
+                        saveInto: {},
+                        refreshAfter: "UNFOCUS",
+                        validations: {}
+                      )
+                    )
+                  }
+                )
+              }
+            ),
+            #"SYSTEM_SYSRULES_textField"(
+              label: "Email",
+              labelPosition: "ABOVE",
+              saveInto: {},
+              refreshAfter: "UNFOCUS",
+              validations: {}
+            ),
+            #"SYSTEM_SYSRULES_paragraphField"(
+              label: "Address",
+              labelPosition: "ABOVE",
+              saveInto: {},
+              refreshAfter: "UNFOCUS",
+              height: "MEDIUM",
+              validations: {}
+            )
+          }
+        ),
+        #"SYSTEM_SYSRULES_columnLayout"(
+          contents: {
+            #"SYSTEM_SYSRULES_sectionLayout_v1"(
+              label: "Vehicle Details",
+              contents: {
+                #"SYSTEM_SYSRULES_textField"(
+                  label: "Make",
+                  labelPosition: "ABOVE",
+                  saveInto: {},
+                  refreshAfter: "UNFOCUS",
+                  validations: {}
+                ),
+                #"SYSTEM_SYSRULES_textField"(
+                  label: "Model",
+                  labelPosition: "ABOVE",
+                  saveInto: {},
+                  refreshAfter: "UNFOCUS",
+                  validations: {}
+                ),
+                #"SYSTEM_SYSRULES_textField"(
+                  label: "Year",
+                  labelPosition: "ABOVE",
+                  saveInto: {},
+                  refreshAfter: "UNFOCUS",
+                  validations: {}
+                )
+              }
+            )
+          }
+        )
+      }
+    ),
+    #"SYSTEM_SYSRULES_sectionLayout_v1"(
+      label: "Maintenance details",
+      contents: {
+        #"SYSTEM_SYSRULES_radioButtonField"(
+          label: "Scheduled requests?",
+          labelPosition: "ABOVE",
+          choiceLabels: {"Yes", "No"},
+          choiceValues: {true, false},
+          value: ri!maintenance.scheduled,
+          saveInto: ri!maintenance.scheduled,
+          choiceLayout: "COMPACT",
+          validations: {}
+        )
+      }
+    ),
+    #"SYSTEM_SYSRULES_dropdownField"(
+      label: "Dropdown",
+      labelPosition: "ABOVE",
+      placeholderLabel: "--- Select a Value ---",
+      choiceLabels: #"_a-0000e3ab-63d7-8000-9ba4-011c48011c48_737784",
+      choiceValues: #"_a-0000e3ab-63d7-8000-9ba4-011c48011c48_737784",
+      saveInto: {},
+      validations: {}
+    ),
+    #"SYSTEM_SYSRULES_paragraphField"(
+      label: "Request details",
+      labelPosition: "ABOVE",
+      saveInto: {},
+      refreshAfter: "UNFOCUS",
+      showwhen: ri!maintenance.scheduled = true,
+      height: "MEDIUM",
+      validations: {}
+    ),
+    #"SYSTEM_SYSRULES_pickerFieldUsers"(
+      label: "Employee",
+      labelPosition: "ABOVE",
+      maxselections: 1,
+      saveInto: {},
+      validations: {}
+    ),
+    #"SYSTEM_SYSRULES_fileUploadField_v1"(
+      label: "File Upload",
+      labelPosition: "ABOVE",
+      saveInto: {},
+      validations: {}
+    ),
+    #"SYSTEM_SYSRULES_dateTimeField"(
+      label: "Date needed by",
+      labelPosition: "ABOVE",
+      value: ri!maintenance.requestDate,
+      saveinto: ri!maintenance.requestDate,
+      validations: if(
+        ri!maintenance.requestDate &gt; now(),
+        null,
+        "Please enter the date in the future."
+      )
+    )
+  },
+  buttons: #"SYSTEM_SYSRULES_ButtonLayout"(
+    primaryButtons: {
+      #"SYSTEM_SYSRULES_ButtonWidget"(
+        label: "Submit",
+        submit: true,
+        size: "LARGE",
+        style: "PRIMARY",
+        confirmheader: "Are you sure the all the info is correct?",
+        confirmbuttonlabel: "Yes",
+        cancelbuttonlabel: "No"
+      )
+    },
+    secondaryButtons: {
+      #"SYSTEM_SYSRULES_ButtonWidget"(
+        label: "CANCEL",
+        icon: "music",
+        value: true,
+        saveinto: ri!cancel,
+        style: "NORMAL"
+      )
+    }
+  )
+)</definition>
+        <namedTypedValue>
+            <name>firstName</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>middleInitial</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>lastName</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>email</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>address</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>vehicle</name>
+            <type>
+                <name>CDT_VFM_vehicle_VS</name>
+                <namespace>urn:com:appian:types</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>year</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>maintenance</name>
+            <type>
+                <name>maintenance</name>
+                <namespace>urn:com:appian:types:TA</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>cancel</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e44b-7714-8000-9ba6-011c48011c48_751024"/>
+    </history>
+</contentHaul>

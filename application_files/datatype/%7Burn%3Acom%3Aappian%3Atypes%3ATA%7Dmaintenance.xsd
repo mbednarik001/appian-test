@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:com:appian:types:TA"
+  xmlns:sima1="urn:com:appian:types:SIMA"
+  xmlns:tns="urn:com:appian:types:TA" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="urn:com:appian:types:SIMA" schemaLocation="%7Burn%3Acom%3Aappian%3Atypes%3ASIMA%7DSIMA_Vehicle.xsd"/>
+  <xsd:complexType name="maintenance">
+    <xsd:annotation>
+      <xsd:appinfo source="http://www.appian.com/ae/types/2009">
+        <ns2:Metadata xmlns:ns2="http://www.appian.com/ae/types/2009">
+          <ns2:versionUuid>0000e44c-0acc-8000-fb35-7f0000014e7a</ns2:versionUuid>
+          <ns2:history>
+            <ns2:historyInfo versionUuid="0000e44c-0acc-8000-fb35-7f0000014e7a"/>
+          </ns2:history>
+        </ns2:Metadata>
+      </xsd:appinfo>
+      <xsd:documentation><![CDATA[for mockup interface]]></xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="id" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Id</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="vehicle" nillable="true" type="sima1:SIMA_Vehicle">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@ManyToOne(cascade=CascadeType.REFRESH)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="scheduled" nillable="true" type="xsd:boolean"/>
+      <xsd:element name="unscheduled" nillable="true" type="xsd:boolean"/>
+      <xsd:element name="startDate" nillable="true" type="xsd:date"/>
+      <xsd:element name="status" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(length=255)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="endDate" nillable="true" type="xsd:date"/>
+      <xsd:element name="totalCost" nillable="true" type="xsd:double"/>
+      <xsd:element name="justification" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(length=255)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="estimatedHours" nillable="true" type="xsd:int"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="issues"
+        nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(length=255)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="description" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(length=255)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="partEstimate" nillable="true" type="xsd:double"/>
+      <xsd:element name="laborEstimate" nillable="true" type="xsd:double"/>
+      <xsd:element name="loaborActual" nillable="true" type="xsd:double"/>
+      <xsd:element name="supervisorDecision" nillable="true" type="xsd:boolean"/>
+      <xsd:element name="supervisorComments" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(length=255)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="requestDate" nillable="true" type="xsd:dateTime"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

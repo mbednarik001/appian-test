@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e44b-7714-8000-9ba6-011c48011c48_751207</versionUuid>
+    <decision>
+        <name>TA_Decision_Admission</name>
+        <uuid>1a9f3484-286d-47b0-a869-5d3603f40e30</uuid>
+        <description>Returns the percentage of admission rate</description>
+        <parentUuid>_a-0000e3ab-63d7-8000-9ba4-011c48011c48_743259</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>fn!override_exception_appian_internal(fn!with(local!decisiondefinition: a!decisiondesigner_cache(uuid: "1a9f3484-286d-47b0-a869-5d3603f40e30",versionKey: "1c967c56-0b0e-497f-ad1e-cfbb7b6560cb",value: #"SYSTEM_SYSRULES_dd_dd"('hitPolicy': #"SYSTEM_SYSRULES_dd_dhp"("UNIQUE"), 'inputs': {#"SYSTEM_SYSRULES_dd_di"('name': "age", 'type': 'type!{http://www.appian.com/ae/types/2009}Integer', 'id': 1, 'restrictionType': #"SYSTEM_SYSRULES_dd_dirt"("NONE")), #"SYSTEM_SYSRULES_dd_di"('name': "student", 'type': 'type!{http://www.appian.com/ae/types/2009}Boolean', 'id': 2, 'restrictionType': #"SYSTEM_SYSRULES_dd_dirt"("NONE")), #"SYSTEM_SYSRULES_dd_di"('name': "memberType", 'type': 'type!{http://www.appian.com/ae/types/2009}Text', 'id': 3, 'restrictionType': #"SYSTEM_SYSRULES_dd_dirt"("LOOKUP"), 'restriction': #"SYSTEM_SYSRULES_dd_dirl"('allowedLabels': {"None", "Basic", "Premium"}, 'allowedValues': {"None", "Basic", "Premium"}))}, 'outputs': {#"SYSTEM_SYSRULES_dd_do"('id': 1, 'name': "rebate", 'type': 'type!{http://www.appian.com/ae/types/2009}Decimal', 'restrictionType': #"SYSTEM_SYSRULES_dd_dort"("NONE"), 'returnListType': false)}, 'rules': {#"SYSTEM_SYSRULES_dd_dr"('id': 1, 'inputs': {#"SYSTEM_SYSRULES_dd_dri"('id': 1, 'decisionInputId': 1, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("LESS_THAN_EQUALS"), 'value1': 12)), #"SYSTEM_SYSRULES_dd_dri"('id': 2, 'decisionInputId': 2, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("ANY"))), #"SYSTEM_SYSRULES_dd_dri"('id': 9, 'decisionInputId': 3, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("ANY")))}, 'outputs': {#"SYSTEM_SYSRULES_dd_dro"('id': 1, 'decisionOutputId': 1, 'value': 100.0)}), #"SYSTEM_SYSRULES_dd_dr"('id': 2, 'inputs': {#"SYSTEM_SYSRULES_dd_dri"('id': 3, 'decisionInputId': 1, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("BETWEEN_INCLUSIVE"), 'value1': 13, 'value2': 18)), #"SYSTEM_SYSRULES_dd_dri"('id': 4, 'decisionInputId': 2, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("ANY"))), #"SYSTEM_SYSRULES_dd_dri"('id': 10, 'decisionInputId': 3, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("ANY")))}, 'outputs': {#"SYSTEM_SYSRULES_dd_dro"('id': 2, 'decisionOutputId': 1, 'value': 25.0)}), #"SYSTEM_SYSRULES_dd_dr"('id': 3, 'inputs': {#"SYSTEM_SYSRULES_dd_dri"('id': 5, 'decisionInputId': 1, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("BETWEEN_INCLUSIVE"), 'value1': 19, 'value2': 55)), #"SYSTEM_SYSRULES_dd_dri"('id': 6, 'decisionInputId': 2, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("EQUALS"), 'value1': false)), #"SYSTEM_SYSRULES_dd_dri"('id': 11, 'decisionInputId': 3, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("IN"), 'value1': {"None"}))}, 'outputs': {#"SYSTEM_SYSRULES_dd_dro"('id': 3, 'decisionOutputId': 1, 'value': 0.0)}), #"SYSTEM_SYSRULES_dd_dr"('id': 4, 'inputs': {#"SYSTEM_SYSRULES_dd_dri"('id': 7, 'decisionInputId': 1, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("BETWEEN_INCLUSIVE"), 'value1': 19, 'value2': 55)), #"SYSTEM_SYSRULES_dd_dri"('id': 8, 'decisionInputId': 2, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("EQUALS"), 'value1': true)), #"SYSTEM_SYSRULES_dd_dri"('id': 12, 'decisionInputId': 3, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("IN"), 'value1': {"None"}))}, 'outputs': {#"SYSTEM_SYSRULES_dd_dro"('id': 4, 'decisionOutputId': 1, 'value': 25.0)}), #"SYSTEM_SYSRULES_dd_dr"('id': 5, 'inputs': {#"SYSTEM_SYSRULES_dd_dri"('id': 13, 'decisionInputId': 1, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("BETWEEN_INCLUSIVE"), 'value1': 19, 'value2': 55)), #"SYSTEM_SYSRULES_dd_dri"('id': 14, 'decisionInputId': 2, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("EQUALS"), 'value1': false)), #"SYSTEM_SYSRULES_dd_dri"('id': 15, 'decisionInputId': 3, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("IN"), 'value1': {"Basic"}))}, 'outputs': {#"SYSTEM_SYSRULES_dd_dro"('id': 5, 'decisionOutputId': 1, 'value': 25.0)}), #"SYSTEM_SYSRULES_dd_dr"('id': 6, 'inputs': {#"SYSTEM_SYSRULES_dd_dri"('id': 16, 'decisionInputId': 1, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("BETWEEN_INCLUSIVE"), 'value1': 19, 'value2': 55)), #"SYSTEM_SYSRULES_dd_dri"('id': 17, 'decisionInputId': 2, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("EQUALS"), 'value1': false)), #"SYSTEM_SYSRULES_dd_dri"('id': 18, 'decisionInputId': 3, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("IN"), 'value1': {"Premium"}))}, 'outputs': {#"SYSTEM_SYSRULES_dd_dro"('id': 6, 'decisionOutputId': 1, 'value': 50.0)}), #"SYSTEM_SYSRULES_dd_dr"('id': 7, 'inputs': {#"SYSTEM_SYSRULES_dd_dri"('id': 19, 'decisionInputId': 1, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("GREATER_THAN"), 'value1': 55)), #"SYSTEM_SYSRULES_dd_dri"('id': 20, 'decisionInputId': 2, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("ANY"))), #"SYSTEM_SYSRULES_dd_dri"('id': 21, 'decisionInputId': 3, 'operator': #"SYSTEM_SYSRULES_dd_dop"('operator': #"SYSTEM_SYSRULES_dd_dopt"("ANY")))}, 'outputs': {#"SYSTEM_SYSRULES_dd_dro"('id': 7, 'decisionOutputId': 1, 'value': 50.0)})}, 'isUnique': true, 'defaultOutputs': {#"SYSTEM_SYSRULES_dd_dro"('id': 1, 'decisionOutputId': 1)})),#"SYSTEM_SYSRULES_dd_exr"(decisionDefinition:local!decisiondefinition,executionInputs:{#"SYSTEM_SYSRULES_dd_dei"(decisionInputId:1,value:'ri!age'),#"SYSTEM_SYSRULES_dd_dei"(decisionInputId:2,value:'ri!student'),#"SYSTEM_SYSRULES_dd_dei"(decisionInputId:3,value:'ri!memberType')})))</definition>
+        <namedTypedValue>
+            <name>age</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>student</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>memberType</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+        <inputMetadataList>
+            <inputMetadata>
+                <inputId>3</inputId>
+                <nameRef>memberType</nameRef>
+                <allowedLabelsExpr></allowedLabelsExpr>
+                <allowedValuesExpr></allowedValuesExpr>
+            </inputMetadata>
+        </inputMetadataList>
+        <outputMetadataList>
+            <outputMetadata>
+                <outputId>1</outputId>
+                <nameRef>rebate</nameRef>
+                <typeName>{http://www.appian.com/ae/types/2009}Decimal</typeName>
+            </outputMetadata>
+        </outputMetadataList>
+        <hitPolicy>UNIQUE</hitPolicy>
+    </decision>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e44b-7714-8000-9ba6-011c48011c48_751207"/>
+    </history>
+</contentHaul>

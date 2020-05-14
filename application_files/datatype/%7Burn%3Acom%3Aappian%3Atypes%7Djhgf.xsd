@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:com:appian:types"
+  xmlns:tns="urn:com:appian:types" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="jhgf">
+    <xsd:annotation>
+      <xsd:appinfo source="http://www.appian.com/ae/types/2009">
+        <ns2:Metadata xmlns:ns2="http://www.appian.com/ae/types/2009">
+          <ns2:versionUuid>0000e45e-6eec-8000-fd36-7f0000014e7a</ns2:versionUuid>
+          <ns2:history>
+            <ns2:historyInfo versionUuid="0000e45e-6eec-8000-fd36-7f0000014e7a"/>
+          </ns2:history>
+        </ns2:Metadata>
+      </xsd:appinfo>
+      <xsd:documentation><![CDATA[jg]]></xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
+</xsd:schema>

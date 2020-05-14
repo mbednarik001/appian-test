@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e44b-7714-8000-9ba6-011c48011c48_751628</versionUuid>
+    <rule>
+        <name>TA_VehicleGrid</name>
+        <uuid>_a-0000e44b-7714-8000-9ba6-011c48011c48_751287</uuid>
+        <description>change the icon for the corresponding vehicle category
+No no :D Danka
+Test the functions</description>
+        <parentUuid>_a-0000e3ab-63d7-8000-9ba4-011c48011c48_743259</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>/*load(
+  local!pagingInfo: a!pagingInfo(
+    startIndex: 1,
+    batchSize: 10,
+    sort: a!sortInfo(
+      field: "model",
+      ascending: true
+    )
+  ),
+  with(
+    a!queryEntity(
+      entity: cons!AK_VFM_VEHICLE_ENTITY,
+      query: a!query(
+        selection: a!querySelection(
+          columns: {
+            a!queryColumn(field: "model")
+          }
+        ),
+        pagingInfo: local!pagingInfo
+      )
+    )
+  )
+)*/
+#"SYSTEM_SYSRULES_sectionLayout_v1"(
+  label: "Test",
+  contents: {
+    #"SYSTEM_SYSRULES_textField"(
+      value: /*adddays(now(),14)*/  date(
+        year(adddays(now(),14)), 
+        month(adddays(now(),14)), 
+        day(adddays(now(),14))
+      )
+    )/*,
+    a!textField(
+      value: a!queryEntity(
+        entity: cons!qckapp_pis_priority,
+        query: a!query(
+          field: "value"
+        )
+      )
+    )   */ 
+  }
+)</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e44b-7714-8000-9ba6-011c48011c48_751628"/>
+    </history>
+</contentHaul>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tempoReportHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>c43c796a-9a48-4010-bdd6-151f85b94257</versionUuid>
+    <tempoReport a:uuid="b069e779-8fb3-41f4-bcf8-ff1e72957500" name="TA Report Builder Empty Dashboard">
+        <a:description>Report of nulls - Place for Silence</a:description>
+        <a:uiExpr>#"_a-0000e44b-7714-8000-9ba6-011c48011c48_755407"()</a:uiExpr>
+        <a:urlStub>HEKlHw</a:urlStub>
+    </tempoReport>
+    <roleMap>
+        <role name="report_administrator">
+            <users/>
+            <groups>
+                <groupUuid>_e-0000e3ab-63d7-8000-9af0-01075c01075c_1094</groupUuid>
+            </groups>
+        </role>
+        <role name="report_viewer">
+            <users/>
+            <groups>
+                <groupUuid>_e-0000e3ab-63d7-8000-9af0-01075c01075c_1118</groupUuid>
+            </groups>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="c43c796a-9a48-4010-bdd6-151f85b94257"/>
+    </history>
+</tempoReportHaul>

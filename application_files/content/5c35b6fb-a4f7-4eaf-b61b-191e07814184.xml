@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e44b-7714-8000-9ba6-011c48011c48_755509</versionUuid>
+    <outboundIntegration>
+        <name>TA_GetCountriesFromAPI</name>
+        <uuid>5c35b6fb-a4f7-4eaf-b61b-191e07814184</uuid>
+        <description>Get list</description>
+        <parentUuid>_a-0000e3ab-63d7-8000-9ba4-011c48011c48_743317</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition></definition>
+        <metadataExpr></metadataExpr>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+        <sharedConfigParameters>
+            <a:Dictionary xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <isInheritedUrlOptionSelected xsi:type="xsd:boolean">false</isInheritedUrlOptionSelected>
+                <relativePath xsi:type="xsd:string"/>
+                <authType xsi:type="xsd:string">None</authType>
+                <authDetails xsi:type="xsd:string"/>
+            </a:Dictionary>
+        </sharedConfigParameters>
+        <configParameters>
+            <a:Dictionary xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <contentType xsi:type="xsd:string"/>
+                <automaticallyConvert xsi:type="xsd:boolean">true</automaticallyConvert>
+                <jsonSchema xsi:nil="true" xsi:type="a:NestedChoice?list"/>
+                <parameters xsi:type="a:NameValue?list"/>
+                <method xsi:type="xsd:string">GET</method>
+                <headers xsi:type="a:NameValue?list"/>
+                <excludeNullHeaders xsi:type="xsd:boolean">true</excludeNullHeaders>
+                <documentConfig xsi:type="xsd:string"/>
+                <excludeNullParams xsi:type="xsd:boolean">true</excludeNullParams>
+                <featureVersion xsi:type="xsd:int">1</featureVersion>
+                <timeout xsi:type="xsd:int">10</timeout>
+                <body xsi:type="xsd:string"/>
+                <flattenedJsonSchema xsi:nil="true" xsi:type="a:Text?list"/>
+            </a:Dictionary>
+        </configParameters>
+        <isWrite>false</isWrite>
+        <integrationType>system.http</integrationType>
+        <connectedSystemUuid></connectedSystemUuid>
+        <isConnectedSystemConnectionOptionSelected>false</isConnectedSystemConnectionOptionSelected>
+        <integrationOutputs>
+            <a:Dictionary xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <outputs xsi:type="a:IntegrationOutput?list"/>
+            </a:Dictionary>
+        </integrationOutputs>
+    </outboundIntegration>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e44b-7714-8000-9ba6-011c48011c48_755509"/>
+    </history>
+</contentHaul>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e44b-7714-8000-9ba6-011c48011c48_751304</versionUuid>
+    <rule>
+        <name>TA_TestQuery</name>
+        <uuid>_a-0000e44b-7714-8000-9ba6-011c48011c48_751267</uuid>
+        <description>Sima hm</description>
+        <parentUuid>_a-0000e3ab-63d7-8000-9ba4-011c48011c48_743317</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>/*rule!AK_VFM_getAllVehicles().category //not distinct*/
+/*
+a!queryEntity(
+  entity: cons!AK_VFM_VEHICLE_CATEGORIES,
+  query: a!query(
+    
+  )
+)
+*/
+/*cons!AK_VFM_VEHICLE_CATEGORIES*/
+
+/*cons!KC_ICON_RISK_SELECTION*/
+#"_a-0000def5-346c-8000-9ba2-011c48011c48_45004"
+
+/*
+a!queryEntity(
+  entity: rule!AK_VFM_getAllVehicles(),
+  query: a!query(
+    aggregation: a!queryAggregation(
+      aggregationColumns: {
+        a!queryAggregationColumn(
+          field: "category",
+          isGrouping: true
+        )
+      }
+    )
+  )
+)
+*/</definition>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e44b-7714-8000-9ba6-011c48011c48_751304"/>
+    </history>
+</contentHaul>

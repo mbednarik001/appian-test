@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:com:appian:types:SIMA"
+  xmlns:tns="urn:com:appian:types:SIMA" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="SIMA_Vehicle">
+    <xsd:annotation>
+      <xsd:appinfo source="appian.jpa">@Table(name="vmvehicle")</xsd:appinfo>
+      <xsd:appinfo source="http://www.appian.com/ae/types/2009">
+        <ns2:Metadata xmlns:ns2="http://www.appian.com/ae/types/2009">
+          <ns2:versionUuid>0000e453-adf8-8000-fc2c-7f0000014e7a</ns2:versionUuid>
+          <ns2:history>
+            <ns2:historyInfo versionUuid="0000e453-adf8-8000-fc2c-7f0000014e7a"/>
+          </ns2:history>
+        </ns2:Metadata>
+      </xsd:appinfo>
+      <xsd:documentation><![CDATA[Pointer to 'vmvehicle' entity in jdbc/Appian]]></xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="id" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Id @GeneratedValue @Column(name="id", nullable=false, unique=true, columnDefinition="INT")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="make" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="make", columnDefinition="VARCHAR(255)")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="model" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="model", columnDefinition="VARCHAR(255)")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="year" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="year", columnDefinition="INT")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="imageIId" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="imageid", columnDefinition="INT")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="color" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="color", columnDefinition="VARCHAR(255)")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="category" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="category", columnDefinition="VARCHAR(255)")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="vehicleId" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="vehicleId", columnDefinition="INT") @JoinColumn(name="vehicleId")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="maintenance" nillable="true" type="xsd:boolean">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="maintenance", columnDefinition="TINYINT")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="lastUpload" nillable="true" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="lastupload", columnDefinition="DATETIME")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

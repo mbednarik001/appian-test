@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tempoFeedHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>05dff64e-0747-4c3c-a570-16c879bdd959</versionUuid>
+    <tempoFeed>
+        <uuid>143e5ae9-fdcf-4e5b-b6e0-5c73cc53879f</uuid>
+        <name>TrainingAppFeed</name>
+        <description>Feed for updates about Plural</description>
+        <showInCatalog>true</showInCatalog>
+        <systemFeed>false</systemFeed>
+    </tempoFeed>
+    <roleMap>
+        <role name="administrator">
+            <users/>
+            <groups>
+                <groupUuid>_e-0000e3ab-63d7-8000-9af0-01075c01075c_1078</groupUuid>
+            </groups>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="c0b8ee7d-9e33-4431-8aa0-75c045b5d1ab"/>
+        <historyInfo versionUuid="05dff64e-0747-4c3c-a570-16c879bdd959"/>
+    </history>
+</tempoFeedHaul>

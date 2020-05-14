@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:com:appian:types"
+  xmlns:tns="urn:com:appian:types" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="emrerun">
+    <xsd:annotation>
+      <xsd:appinfo source="appian.jpa">@Table(name="emrerun")</xsd:appinfo>
+      <xsd:appinfo source="http://www.appian.com/ae/types/2009">
+        <ns2:Metadata xmlns:ns2="http://www.appian.com/ae/types/2009">
+          <ns2:versionUuid>0000e447-d01c-8000-fa8c-7f0000014e7a</ns2:versionUuid>
+          <ns2:history>
+            <ns2:historyInfo versionUuid="0000e447-d01c-8000-fa8c-7f0000014e7a"/>
+          </ns2:history>
+        </ns2:Metadata>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="a_id" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Id @GeneratedValue @Column(name="a_id", nullable=false, unique=true, columnDefinition="BIGINT")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="id" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="id", columnDefinition="INT")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="filename" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="filename", columnDefinition="VARCHAR(255)")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="documenttype" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="documenttype", columnDefinition="VARCHAR(255)")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="errormessage" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="errormessage", columnDefinition="VARCHAR(1023)")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="createdat" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="createdat", columnDefinition="VARCHAR(255)")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="status" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name="status", columnDefinition="VARCHAR(255)")</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

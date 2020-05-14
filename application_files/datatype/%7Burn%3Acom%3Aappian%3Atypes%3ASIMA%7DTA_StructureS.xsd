@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:com:appian:types:SIMA"
+  xmlns:hi2="urn:com:appian:types:HI"
+  xmlns:tns="urn:com:appian:types:SIMA"
+  xmlns:types1="urn:com:appian:types" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="urn:com:appian:types" schemaLocation="%7Burn%3Acom%3Aappian%3Atypes%7DAddress.xsd"/>
+  <xsd:import namespace="urn:com:appian:types:HI" schemaLocation="%7Burn%3Acom%3Aappian%3Atypes%3AHI%7DHI_HouseInfomation.xsd"/>
+  <xsd:import namespace="urn:com:appian:types" schemaLocation="%7Burn%3Acom%3Aappian%3Atypes%7DPB_MP_DoctorsInfo.xsd"/>
+  <xsd:complexType name="TA_StructureS">
+    <xsd:annotation>
+      <xsd:appinfo source="http://www.appian.com/ae/types/2009">
+        <ns2:Metadata xmlns:ns2="http://www.appian.com/ae/types/2009">
+          <ns2:Flags>HIDDEN</ns2:Flags>
+          <ns2:versionUuid>0000e453-dd27-8000-fc60-7f0000014e7a</ns2:versionUuid>
+          <ns2:history>
+            <ns2:historyInfo versionUuid="0000e453-dd27-8000-fc60-7f0000014e7a"/>
+          </ns2:history>
+        </ns2:Metadata>
+      </xsd:appinfo>
+      <xsd:documentation><![CDATA[Create new structure that is different from any other in jdbc/Appian.]]></xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="id" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Id @GeneratedValue</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="referenceToCDT_FK" nillable="true" type="types1:Address">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@ManyToOne(cascade=CascadeType.REFRESH)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="house" nillable="true" type="hi2:HI_HouseInfomation">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@ManyToOne(cascade=CascadeType.REFRESH)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="noRooms" nillable="true" type="xsd:double"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0"
+        name="noWindowsInRooms" nillable="true" type="xsd:int"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="dog"
+        nillable="true" type="xsd:boolean"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="dogsDoctor" type="types1:PB_MP_DoctorsInfo">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@OneToMany(cascade=CascadeType.ALL, indexed=false)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="testText" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(length=255)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

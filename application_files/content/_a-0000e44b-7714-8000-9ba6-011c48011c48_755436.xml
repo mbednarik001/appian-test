@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e44b-7714-8000-9ba6-011c48011c48_755469</versionUuid>
+    <rule>
+        <name>IT_SecureCredAuth_testing</name>
+        <uuid>_a-0000e44b-7714-8000-9ba6-011c48011c48_755436</uuid>
+        <description>Return authentication from the secure credential store</description>
+        <parentUuid>_a-0000e3ab-63d7-8000-9ba4-011c48011c48_743317</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#"SYSTEM_SYSRULES_httpAuthenticationBasic"(
+  username: #"SYSTEM_SYSRULES_scsField"(
+    externalSystemKey: "customerdb" /*but I was not given the key*/,
+    fieldKey: "username",
+    usePerUser: true
+  ),
+  password: #"SYSTEM_SYSRULES_scsField"(
+    externalSystemKey: "customerdb",
+    fieldKey: "password",
+    usePerUser: true
+  )
+)</definition>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e44b-7714-8000-9ba6-011c48011c48_755469"/>
+    </history>
+</contentHaul>

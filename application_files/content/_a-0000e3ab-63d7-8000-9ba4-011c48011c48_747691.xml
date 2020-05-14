@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e3ab-63d7-8000-9ba4-011c48011c48_747990</versionUuid>
+    <rule>
+        <name>TA_EnterOrderDetails</name>
+        <uuid>_a-0000e3ab-63d7-8000-9ba4-011c48011c48_747691</uuid>
+        <description></description>
+        <parentUuid>_a-0000e375-095f-8000-9ba2-011c48011c48_670183</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>load(
+  local!user,
+  local!success,
+  #"SYSTEM_SYSRULES_formLayout_v1"(
+    label: "Form",
+    contents: {
+      #"SYSTEM_SYSRULES_sectionLayout_v1"(
+        contents: {
+          #"SYSTEM_SYSRULES_textField"(
+            label: "Price",
+            labelPosition: "ABOVE",
+            saveInto: ri!price,
+            refreshAfter: "UNFOCUS",
+            validations: {}
+          )
+        }
+      ),
+      #"SYSTEM_SYSRULES_textField"(
+        label: "Quantity",
+        labelPosition: "ABOVE",
+        saveInto: ri!quantity,
+        refreshAfter: "UNFOCUS",
+        validations: {}
+      ),
+      #"SYSTEM_SYSRULES_textField"(
+        label: "Result",
+        labelPosition: "ABOVE",
+        value: #"_a-0000e3ab-63d7-8000-9ba4-011c48011c48_747671"(
+          price:ri!price,
+          quantity:ri!quantity
+        ),
+        saveInto: {},
+        refreshAfter: "UNFOCUS",
+        validations: {}
+      ),
+      #"SYSTEM_SYSRULES_sectionLayout_v1"(
+        label: "Section",
+        contents: {
+          #"SYSTEM_SYSRULES_forEach"(
+            items: {"product 1", "product 2", "product 3", "Summary" },
+            expression:
+            if(
+              fv!islast,
+              #"SYSTEM_SYSRULES_paragraphField"(
+                label: fv!item,
+                labelPosition: "JUSTIFIED",
+                value: ri!textValues[fv!index],
+                saveInto: ri!textValues[fv!index]
+              ),
+              #"SYSTEM_SYSRULES_textField"(
+                label: fv!item,
+                labelPosition: "JUSTIFIED",
+                value: ri!textValues[fv!index],
+                saveInto: ri!textValues[fv!index]
+              ) 
+            )
+          )
+        }
+      ),
+      #"SYSTEM_SYSRULES_pickerFieldUsers"(
+        label: "User to add",
+        saveInto: local!user,
+        value: local!user
+      ),
+      #"SYSTEM_SYSRULES_richTextDisplayField"(
+        labelPosition: "COLLAPSED",
+        showWhen: not(isnull(local!user)),
+        value: 
+          #"SYSTEM_SYSRULES_richTextItem_v1"(
+            text:
+              if(
+                local!success,
+                "User added successfully",
+                "User not added"
+              ),
+            style:
+              if(
+                local!success,
+                "PLAIN",
+                "STRONG"
+              )
+          )
+      ),
+      #"SYSTEM_SYSRULES_textField"(
+        label: "Users in Group",
+        value: getdistinctusers(
+          #"_a-0000e3ab-63d7-8000-9ba4-011c48011c48_747905"
+        ),
+        readOnly: true
+      )
+    },
+    buttons: {
+      #"SYSTEM_SYSRULES_ButtonLayout"(
+        primaryButtons: {
+          #"SYSTEM_SYSRULES_ButtonWidget"(
+            label: "Add user to rules group",
+            saveInto: #"SYSTEM_SYSRULES_addMembersToGroup"(
+              group: #"_a-0000e3ab-63d7-8000-9ba4-011c48011c48_747905",
+              newMembers: local!user,
+              onSuccess: 
+                a!save(
+                  target: local!user,
+                  value: true
+                ),
+              onError: 
+                a!save(
+                  target: local!user,
+                  value: false
+                )                
+            ),
+            /*submit: true,*/
+            style: "PRIMARY"
+          )
+        },
+        secondaryButtons: {
+          #"SYSTEM_SYSRULES_ButtonWidget"(
+            label: "Cancel",
+            value: true,
+            saveInto: ri!cancel,
+            submit: true,
+            style: "NORMAL",
+            validate: false
+          )
+        }
+      )
+    }
+  )
+)  </definition>
+        <namedTypedValue>
+            <name>cancel</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>price</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>quantity</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>textValues</name>
+            <type>
+                <name>Text?list</name>
+                <namespace>http://www.appian.com/ae/types/2009</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:name/>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:boolean"/>
+                    <a:nameRef>cancel</a:nameRef>
+                    <a:id>1</a:id>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:Expression">7</a:value>
+                    <a:nameRef>price</a:nameRef>
+                    <a:id>2</a:id>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:Expression">1</a:value>
+                    <a:nameRef>quantity</a:nameRef>
+                    <a:id>3</a:id>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:Expression">{null, null, null, null}</a:value>
+                    <a:nameRef>textValues</a:nameRef>
+                    <a:id>4</a:id>
+                </a:ruleInputTestConfigs>
+                <a:assertions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            </el>
+        </value>
+    </typedValue>
+    <history>
+        <historyInfo versionUuid="_a-0000e3ab-63d7-8000-9ba4-011c48011c48_747990"/>
+    </history>
+</contentHaul>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e3ab-63d7-8000-9ba4-011c48011c48_748008</versionUuid>
+    <rule>
+        <name>TA_GetVehicles</name>
+        <uuid>_a-0000e3ab-63d7-8000-9ba4-011c48011c48_747997</uuid>
+        <description>Return info about vehicles</description>
+        <parentUuid>_a-0000e3ab-63d7-8000-9ba4-011c48011c48_743317</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#"SYSTEM_SYSRULES_queryEntity_v1"(
+  entity: #"_a-0000e3ab-63d7-8000-9ba4-011c48011c48_738538",
+  query:
+    #"SYSTEM_SYSRULES_query"(
+      pagingInfo: 
+        #"SYSTEM_SYSRULES_pagingInfo"(
+          startIndex: 1,
+          batchSize: 5
+        ),
+      selection:
+        #"SYSTEM_SYSRULES_querySelection"(
+          columns:{
+            #"SYSTEM_SYSRULES_queryColumn"(
+              field: "make"
+            ),
+            #"SYSTEM_SYSRULES_queryColumn"(
+              field: "model", alias: "hmm"
+            ),
+            #"SYSTEM_SYSRULES_queryColumn"(
+              field: "lastUpdated"
+            )            
+            
+          }
+        ),
+      filter:
+        #"SYSTEM_SYSRULES_queryFilter"(
+          field: "lastUpdated",
+          operator: "&lt;",
+          value: now()
+        )
+    )
+)</definition>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e3ab-63d7-8000-9ba4-011c48011c48_748008"/>
+    </history>
+</contentHaul>

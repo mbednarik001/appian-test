@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recordTypeHaul xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <versionUuid>8a91ac1c-b0a1-4274-8d64-c9d4a8bfaaba</versionUuid>
+  <recordType a:uuid="a93e403b-ca3e-487b-a8d9-6b39b8e53573" name="Fleet S">
+    <a:pluralName>Fleet Spl</a:pluralName>
+    <a:description>List of all item in a fleet</a:description>
+    <a:urlStub>v4PwmA</a:urlStub>
+    <a:listViewTemplateExpr/>
+    <a:detailViewCfg>
+      <a:nameExpr>="Summary"</a:nameExpr>
+      <a:uiExpr/>
+      <a:visibilityExpr>=true()</a:visibilityExpr>
+      <a:urlStub>summary</a:urlStub>
+      <a:headerExpr/>
+      <a:recordActionLaunchType>DIALOG</a:recordActionLaunchType>
+    </a:detailViewCfg>
+    <a:isSystem>false</a:isSystem>
+    <a:dataSrcExpr/>
+    <a:facetsListExpr/>
+    <a:titleExpr/>
+    <a:defaultFiltersExpr/>
+    <a:layoutType>GRID</a:layoutType>
+    <a:security>16383</a:security>
+    <a:hideLatestNews>false</a:hideLatestNews>
+    <a:isExportable>false</a:isExportable>
+    <a:listViewSrcExpr/>
+    <a:recordViewSrcExpr/>
+    <a:iconId/>
+    <a:listAutoRefreshInterval>0.0</a:listAutoRefreshInterval>
+    <a:enabledFeatures>15</a:enabledFeatures>
+    <a:isVisibleInRecordTypeList>true</a:isVisibleInRecordTypeList>
+    <a:recordActionLaunchType>DIALOG</a:recordActionLaunchType>
+  </recordType>
+  <roleMap>
+    <role name="record_type_administrator">
+      <users/>
+      <groups>
+        <groupUuid>_e-0000e3ab-63d7-8000-9af0-01075c01075c_1094</groupUuid>
+      </groups>
+    </role>
+    <role name="record_type_viewer">
+      <users/>
+      <groups>
+        <groupUuid>_e-0000e3ab-63d7-8000-9af0-01075c01075c_1118</groupUuid>
+      </groups>
+    </role>
+  </roleMap>
+  <history>
+    <historyInfo versionUuid="8a91ac1c-b0a1-4274-8d64-c9d4a8bfaaba"/>
+  </history>
+  <migrationVersion>1</migrationVersion>
+</recordTypeHaul>
