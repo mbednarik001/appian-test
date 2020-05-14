@@ -223,9 +223,9 @@
       <a:visibilityExpr>=true()</a:visibilityExpr>
       <a:urlStub>summary</a:urlStub>
       <a:headerExpr/>
-      <a:relatedActionCfg>efadef65-fada-4637-9f6e-063b3ecbec0f</a:relatedActionCfg>
-      <a:relatedActionCfg>d8e7df1a-8fe6-4eae-bb59-e8f321c6a234</a:relatedActionCfg>
-      <a:relatedActionCfg>6369a4ac-7b7b-4561-8a45-deedd831df8d</a:relatedActionCfg>
+      <a:relatedActionCfg>eba7bcff-275d-4597-bf9d-4778dba0e4de</a:relatedActionCfg>
+      <a:relatedActionCfg>1d3d631e-5981-4480-b523-d4a589926f96</a:relatedActionCfg>
+      <a:relatedActionCfg>3bd43738-dc95-44f5-9b0f-7c3e21f12900</a:relatedActionCfg>
       <a:recordActionLaunchType>SAME_TAB</a:recordActionLaunchType>
     </a:detailViewCfg>
     <a:detailViewCfg>
@@ -234,8 +234,8 @@
       <a:visibilityExpr>=true()</a:visibilityExpr>
       <a:urlStub>_Yr3--Q</a:urlStub>
       <a:headerExpr/>
-      <a:relatedActionCfg>efadef65-fada-4637-9f6e-063b3ecbec0f</a:relatedActionCfg>
-      <a:relatedActionCfg>d8e7df1a-8fe6-4eae-bb59-e8f321c6a234</a:relatedActionCfg>
+      <a:relatedActionCfg>eba7bcff-275d-4597-bf9d-4778dba0e4de</a:relatedActionCfg>
+      <a:relatedActionCfg>1d3d631e-5981-4480-b523-d4a589926f96</a:relatedActionCfg>
       <a:recordActionLaunchType>SAME_TAB</a:recordActionLaunchType>
     </a:detailViewCfg>
     <a:relatedActionCfg>
@@ -249,7 +249,7 @@
 )</a:contextExpr>
       <a:visibilityExpr>=true()</a:visibilityExpr>
       <a:iconId>f044</a:iconId>
-      <a:refId>efadef65-fada-4637-9f6e-063b3ecbec0f</a:refId>
+      <a:refId>eba7bcff-275d-4597-bf9d-4778dba0e4de</a:refId>
     </a:relatedActionCfg>
     <a:relatedActionCfg>
       <a:target a:uuid="ad88a948-07c2-4001-a434-d1ea8c553c29" xsi:type="a:ProcessModel"/>
@@ -258,7 +258,7 @@
 }</a:contextExpr>
       <a:visibilityExpr>=true()</a:visibilityExpr>
       <a:iconId>f046</a:iconId>
-      <a:refId>d8e7df1a-8fe6-4eae-bb59-e8f321c6a234</a:refId>
+      <a:refId>1d3d631e-5981-4480-b523-d4a589926f96</a:refId>
     </a:relatedActionCfg>
     <a:relatedActionCfg>
       <a:target a:uuid="127d818e-f13b-4c29-8b4a-33580d5a2e9d" xsi:type="a:ProcessModel"/>
@@ -267,7 +267,7 @@
 }</a:contextExpr>
       <a:visibilityExpr>=true()</a:visibilityExpr>
       <a:iconId>f014</a:iconId>
-      <a:refId>6369a4ac-7b7b-4561-8a45-deedd831df8d</a:refId>
+      <a:refId>3bd43738-dc95-44f5-9b0f-7c3e21f12900</a:refId>
     </a:relatedActionCfg>
     <a:isSystem>false</a:isSystem>
     <a:dataSrcExpr/>
